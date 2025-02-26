@@ -72,7 +72,7 @@ button:focus-visible {
   flex-direction: row;
 }
 .results {
-  width: 33vw;
+  width: 25vw;
 }
 .globe {
   width: 66vw;
@@ -81,7 +81,7 @@ button:focus-visible {
 .card {
   display: flex;
   flex-direction: row;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .card .card-img {
@@ -89,7 +89,10 @@ button:focus-visible {
 }
 
 .card .card-img img {
-  width: 100%;
+  /* width: 100%; */
+  width: auto;
+  max-width: 100%;
+  max-height: 150px;
 }
 
 .card .card-info {
@@ -101,19 +104,19 @@ button:focus-visible {
 }
 
 .card .card-info .card-partner {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 .card .card-info .card-details {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
 table {
   width: 100%;
   text-align: center;
-  font-size: 2rem;  
+  font-size: 1rem;  
 }
 
 .content {
@@ -128,10 +131,10 @@ table {
 
 .footer {
   margin-top: auto;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .footer button {
   width: 100%;
-  font-size: 5rem;
+  font-size: 2rem;
 }

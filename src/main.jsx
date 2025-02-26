@@ -35,7 +35,7 @@ const World = () => {
   const partners = [
     { country: 'DE', name: 'ADAC', city: 'Frankfurt', img: adac, countryname: 'Germany' },
     { country: 'SA', name: 'Almosafer', city: 'Riyadh', img: almosafer, countryname: 'Saudi Arabia' },
-    { country: '-99', name: 'Amplitudes ', city: 'Toulouse', img: amplitudes, countryname: 'France' },
+    { country: 'FRA', name: 'Amplitudes ', city: 'Toulouse', img: amplitudes, countryname: 'France' },
     { country: 'CL', name: 'Blanco Viajes', city: 'Santiago', img: blanco, countryname: 'Chile' },
     { country: 'BR', name: 'Brickell Brazi', city: 'Rio De Janeiro', img: brickell, countryname: 'Brazil' },
     { country: 'MX', name: 'Brickell Mexico', city: 'Mexico City', img: brickell, countryname: 'Mexico' },
@@ -70,7 +70,7 @@ const World = () => {
 
   useEffect(() => {
     fetch(
-      'https://raw.githubusercontent.com/vasturiano/react-globe.gl/refs/heads/master/example/datasets/ne_110m_admin_0_countries.geojson'
+      '/ne_110m_admin_0_countries.geojson'
     )
       .then(res => res.json())
       .then(setCountries);
