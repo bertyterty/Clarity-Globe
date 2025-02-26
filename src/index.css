@@ -77,3 +77,61 @@ button:focus-visible {
 .globe {
   width: 66vw;
 }
+
+.card {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.card .card-img {
+  width: 50%;
+}
+
+.card .card-img img {
+  width: 100%;
+}
+
+.card .card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.card .card-info .card-partner {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.card .card-info .card-details {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;  
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container > *:not(.footer) {
+  flex-grow: 1; 
+}
+
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+}
+
+.footer button {
+  width: 100%;
+  font-size: 5rem;
+}
