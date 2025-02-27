@@ -72,13 +72,27 @@ button:focus-visible {
   flex-direction: row;
 }
 .results {
-  width: 15vw;
+  width: auto;
+  padding: 2rem;
 }
 .globe {
-  width: 85vw;
+  width: 2100px;
+}
+
+.heading {
+  text-align: center;
+}
+
+.found-partners {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  gap: 10px;
+  width: 100%; /* Adjust as needed */
 }
 
 .card {
+  margin: 1rem;
+  border: 1px dashed grey;
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
@@ -101,6 +115,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   width: 50%;
+  padding-left: 10px;
 }
 
 .card .card-info .card-partner {

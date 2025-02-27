@@ -120,10 +120,12 @@ const World = () => {
               </table>
               
             </div>
-            <div className='found-partners'>
-              { score > 0 && <>
+            <div className='results-total'>
+            { score > 0 && <>
               You have found {score} partners
               </> }
+            </div>
+            <div className='found-partners'>
               { found.map(element => {
                 const partner = partners.find(partner => partner.country === element)
                 if (partner) {
