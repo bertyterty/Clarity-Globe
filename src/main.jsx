@@ -194,8 +194,8 @@ const World = () => {
               <div>
                 <div>
                   <b>
-                    {d.ADMIN} ({d.ISO_A2}):
-                    {/* {d.ADMIN} */}
+                    {/* {d.ADMIN} ({d.ISO_A2}): */}
+                    {d.ADMIN}
                   </b>
                 </div>
                 {/* <div>
@@ -209,6 +209,11 @@ const World = () => {
             // onPolygonHover={setHoverD}
             onPolygonClick={ClickCountry}
             polygonsTransitionDuration={300}
+            width={'2100'}
+            height='100vh'
+            showAtmosphere={true}
+            atmosphereColor={'lightskyblue'}
+            atmosphereAltitude={0.15}
           />
         </div>
       </div>

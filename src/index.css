@@ -72,10 +72,10 @@ button:focus-visible {
   flex-direction: row;
 }
 .results {
-  width: 25vw;
+  width: 15vw;
 }
 .globe {
-  width: 66vw;
+  width: 85vw;
 }
 
 .card {
@@ -104,12 +104,12 @@ button:focus-visible {
 }
 
 .card .card-info .card-partner {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .card .card-info .card-details {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
 }
 
