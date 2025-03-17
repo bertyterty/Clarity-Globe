@@ -326,7 +326,7 @@ const World = () => {
             )}
             onPolygonClick={ClickCountry}
             polygonsTransitionDuration={300}
-            width={'2610'}
+            width={'2960'}
             height='100vh'
             showAtmosphere={true}
             atmosphereColor={'lightskyblue'}
