@@ -189,23 +189,23 @@ const World = () => {
   ];
 
   const cheated = () => {
-    partners.map(partner => {
+    partners.map((partner) => {
       setCheater(true);
 
-      const check = found.find(el => partner.country === el);
+      const check = found.find((el) => partner.country === el);
       console.log(check);
       if (!check) {
-        setFound(prevFound => [...prevFound, partner.country]);
+        setFound((prevFound) => [...prevFound, partner.country]);
       }
     });
   };
 
-  const ClickCountry = clicked => {
-    if (!found.find(element => element === clicked.properties.ISO_A2)) {
-      setFound(prevFound => [...prevFound, clicked.properties.ISO_A2]);
-      partners.map(partner => {
+  const ClickCountry = (clicked) => {
+    if (!found.find((element) => element === clicked.properties.ISO_A2)) {
+      setFound((prevFound) => [...prevFound, clicked.properties.ISO_A2]);
+      partners.map((partner) => {
         if (partner.country === clicked.properties.ISO_A2) {
-          setScore(prevScore => prevScore + 1);
+          setScore((prevScore) => prevScore + 1);
         }
       });
     }
@@ -213,7 +213,7 @@ const World = () => {
 
   useEffect(() => {
     fetch('/ne_110m_admin_0_countries.geojson')
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(setCountries);
   }, []);
 
@@ -258,9 +258,9 @@ const World = () => {
               )}
             </div>
             <div className='found-partners'>
-              {found.map(element => {
+              {found.map((element) => {
                 const partner = partners.find(
-                  partner => partner.country === element
+                  (partner) => partner.country === element
                 );
                 if (partner) {
                   return (
@@ -282,10 +282,7 @@ const World = () => {
               })}
             </div>
             <div className='footer'>
-              <img
-                src={oneGlobal}
-                onClick={resetScore}
-                className='reset'></img>
+              <img src={oneGlobal} onClick={resetScore} className='reset'></img>
             </div>
           </div>
         </div>
@@ -295,28 +292,32 @@ const World = () => {
             backgroundImageUrl={sky}
             lineHoverPrecision={0}
             polygonsData={countries.features.filter(
-              d => d.properties.ISO_A2 !== 'AQ'
+              (d) => d.properties.ISO_A2 !== 'AQ'
             )}
-            polygonAltitude={d => {
-              const t = found.find(element => element === d.properties.ISO_A2);
+            polygonAltitude={(d) => {
+              const t = found.find(
+                (element) => element === d.properties.ISO_A2
+              );
               if (t) {
                 return 0.12;
               } else {
                 return 0.06;
               }
             }}
-            polygonCapColor={d => {
-              const t = found.find(element => element === d.properties.ISO_A2);
-              if (t && partners.find(partner => partner.country === t)) {
+            polygonCapColor={(d) => {
+              const t = found.find(
+                (element) => element === d.properties.ISO_A2
+              );
+              if (t && partners.find((partner) => partner.country === t)) {
                 return 'green';
               } else if (t) {
                 return 'red';
               } else {
-                return 'steelblue';
+                return '#137f8d';
               }
             }}
-            polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}
-            polygonStrokeColor={() => '#111'}
+            polygonSideColor={() => '#1c2426'}
+            polygonStrokeColor={() => '#1c2426'}
             polygonLabel={({ properties: d }) => (
               <div>
                 <div>
