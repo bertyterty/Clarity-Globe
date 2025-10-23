@@ -6,9 +6,9 @@ import sky from './assets/night-sky.png';
 import './index.css';
 
 import adac from './assets/logos/adac.png';
-import almosafer from './assets/logos/almosafer.jpg';
+import almosafer from './assets/logos/almosafer.png';
 import amplitudes from './assets/logos/amplitudes.png';
-import blanco from './assets/logos/Blanco.jpg';
+import blanco from './assets/logos/Blanco.gif';
 import brickell from './assets/logos/brickell.png';
 import citystate from './assets/logos/citystate.jpg';
 import clarityNord from './assets/logos/clarity_nordics.png';
@@ -24,6 +24,7 @@ import worldlink from './assets/logos/worldlink.png';
 import worldtravel from './assets/logos/worldtravel.png';
 import turners from './assets/logos/xl_turners.png';
 import oneGlobal from './assets/logos/one-global.png';
+import tripbiz from './assets/logos/tripbiz.webp';
 
 const World = () => {
   const [countries, setCountries] = useState({ features: [] });
@@ -47,13 +48,6 @@ const World = () => {
       countryname: 'Saudi Arabia',
     },
     {
-      country: 'FRA',
-      name: 'Amplitudes ',
-      city: 'Toulouse',
-      img: amplitudes,
-      countryname: 'France',
-    },
-    {
       country: 'CL',
       name: 'Blanco Viajes',
       city: 'Santiago',
@@ -62,7 +56,7 @@ const World = () => {
     },
     {
       country: 'BR',
-      name: 'Brickell Brazi',
+      name: 'Brickell Brazil',
       city: 'Rio De Janeiro',
       img: brickell,
       countryname: 'Brazil',
@@ -179,6 +173,13 @@ const World = () => {
       img: worldtravel,
       countryname: 'USA',
     },
+    // {
+    //   country: 'US',
+    //   name: 'Gordian Travel',
+    //   city: 'Upper Black Eddy, PA',
+    //   img: gordian,
+    //   countryname: 'USA',
+    // },
     {
       country: 'ZA',
       name: 'XL Turners',
@@ -186,26 +187,47 @@ const World = () => {
       img: turners,
       countryname: 'South Africa',
     },
+    {
+      country: 'CN',
+      name: 'TripBiz',
+      city: 'Shanghai',
+      img: tripbiz,
+      countryname: 'China',
+    },
+    {
+      country: 'JP',
+      name: 'TripBiz',
+      city: 'Tokyo',
+      img: tripbiz,
+      countryname: 'Japan',
+    },
+    // {
+    //   country: 'CN',
+    //   name: 'TripBiz',
+    //   city: 'Hong Kong',
+    //   img: tripbiz,
+    //   countryname: 'Hong Kong',
+    // },
   ];
 
   const cheated = () => {
-    partners.map((partner) => {
+    partners.map(partner => {
       setCheater(true);
 
-      const check = found.find((el) => partner.country === el);
+      const check = found.find(el => partner.country === el);
       console.log(check);
       if (!check) {
-        setFound((prevFound) => [...prevFound, partner.country]);
+        setFound(prevFound => [...prevFound, partner.country]);
       }
     });
   };
 
-  const ClickCountry = (clicked) => {
-    if (!found.find((element) => element === clicked.properties.ISO_A2)) {
-      setFound((prevFound) => [...prevFound, clicked.properties.ISO_A2]);
-      partners.map((partner) => {
+  const ClickCountry = clicked => {
+    if (!found.find(element => element === clicked.properties.ISO_A2)) {
+      setFound(prevFound => [...prevFound, clicked.properties.ISO_A2]);
+      partners.map(partner => {
         if (partner.country === clicked.properties.ISO_A2) {
-          setScore((prevScore) => prevScore + 1);
+          setScore(prevScore => prevScore + 1);
         }
       });
     }
@@ -213,7 +235,7 @@ const World = () => {
 
   useEffect(() => {
     fetch('/ne_110m_admin_0_countries.geojson')
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(setCountries);
   }, []);
 
@@ -258,9 +280,9 @@ const World = () => {
               )}
             </div>
             <div className='found-partners'>
-              {found.map((element) => {
+              {found.map(element => {
                 const partner = partners.find(
-                  (partner) => partner.country === element
+                  partner => partner.country === element
                 );
                 if (partner) {
                   return (
@@ -282,7 +304,11 @@ const World = () => {
               })}
             </div>
             <div className='footer'>
-              <img src={oneGlobal} onClick={resetScore} className='reset'></img>
+              <img
+                src={oneGlobal}
+                onClick={resetScore}
+                className='reset'
+              ></img>
             </div>
           </div>
         </div>
@@ -292,23 +318,19 @@ const World = () => {
             backgroundImageUrl={sky}
             lineHoverPrecision={0}
             polygonsData={countries.features.filter(
-              (d) => d.properties.ISO_A2 !== 'AQ'
+              d => d.properties.ISO_A2 !== 'AQ'
             )}
-            polygonAltitude={(d) => {
-              const t = found.find(
-                (element) => element === d.properties.ISO_A2
-              );
+            polygonAltitude={d => {
+              const t = found.find(element => element === d.properties.ISO_A2);
               if (t) {
                 return 0.12;
               } else {
                 return 0.06;
               }
             }}
-            polygonCapColor={(d) => {
-              const t = found.find(
-                (element) => element === d.properties.ISO_A2
-              );
-              if (t && partners.find((partner) => partner.country === t)) {
+            polygonCapColor={d => {
+              const t = found.find(element => element === d.properties.ISO_A2);
+              if (t && partners.find(partner => partner.country === t)) {
                 return 'green';
               } else if (t) {
                 return 'red';
