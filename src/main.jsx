@@ -25,15 +25,18 @@ import worldtravel from './assets/logos/worldtravel.png';
 import turners from './assets/logos/xl_turners.png';
 import oneGlobal from './assets/logos/one-global.png';
 import tripbiz from './assets/logos/tripbiz.webp';
+import gordian from './assets/logos/gordian.webp';
 
 const World = () => {
   const [countries, setCountries] = useState({ features: [] });
   const [score, setScore] = useState(0);
   const [found, setFound] = useState([]);
   const [cheater, setCheater] = useState(false);
+  const [right, setRight] = useState(0);
 
   const partners = [
     {
+      id: 1,
       country: 'DE',
       name: 'ADAC',
       city: 'Frankfurt',
@@ -41,6 +44,7 @@ const World = () => {
       countryname: 'Germany',
     },
     {
+      id: 2,
       country: 'SA',
       name: 'Almosafer',
       city: 'Riyadh',
@@ -48,6 +52,7 @@ const World = () => {
       countryname: 'Saudi Arabia',
     },
     {
+      id: 3,
       country: 'CL',
       name: 'Blanco Viajes',
       city: 'Santiago',
@@ -55,6 +60,7 @@ const World = () => {
       countryname: 'Chile',
     },
     {
+      id: 4,
       country: 'BR',
       name: 'Brickell Brazil',
       city: 'Rio De Janeiro',
@@ -62,6 +68,7 @@ const World = () => {
       countryname: 'Brazil',
     },
     {
+      id: 5,
       country: 'MX',
       name: 'Brickell Mexico',
       city: 'Mexico City',
@@ -69,6 +76,7 @@ const World = () => {
       countryname: 'Mexico',
     },
     {
+      id: 6,
       country: 'SG',
       name: 'Citystate Singapore',
       city: 'Singapore',
@@ -76,6 +84,7 @@ const World = () => {
       countryname: 'Singapore',
     },
     {
+      id: 7,
       country: 'GB',
       name: 'Clarity',
       city: 'Manchester',
@@ -83,6 +92,7 @@ const World = () => {
       countryname: 'United Kingdom',
     },
     {
+      id: 8,
       country: 'SE',
       name: 'Clarity NORDICS',
       city: 'Stockholm',
@@ -90,6 +100,7 @@ const World = () => {
       countryname: 'Sweden',
     },
     {
+      id: 9,
       country: 'ES',
       name: 'Geotur ',
       city: 'Madrid',
@@ -97,6 +108,7 @@ const World = () => {
       countryname: 'Spain',
     },
     {
+      id: 10,
       country: 'AU',
       name: 'Globetrotter ',
       city: 'Melbourne',
@@ -104,6 +116,7 @@ const World = () => {
       countryname: 'Australia',
     },
     {
+      id: 11,
       country: 'CH',
       name: 'Kuoni ',
       city: 'Zurich',
@@ -111,6 +124,7 @@ const World = () => {
       countryname: 'Switzerland',
     },
     {
+      id: 12,
       country: 'AE',
       name: 'Sharaf ',
       city: 'Dubai',
@@ -118,6 +132,7 @@ const World = () => {
       countryname: 'UAE',
     },
     {
+      id: 13,
       country: 'IN',
       name: 'SOTC ',
       city: 'Mumbai',
@@ -125,6 +140,7 @@ const World = () => {
       countryname: 'India',
     },
     {
+      id: 14,
       country: 'CA',
       name: 'Travelpath ',
       city: 'Ontario',
@@ -132,6 +148,7 @@ const World = () => {
       countryname: 'Canada',
     },
     {
+      id: 15,
       country: 'CZ',
       name: 'Weco Czech',
       city: 'Prague',
@@ -139,6 +156,7 @@ const World = () => {
       countryname: 'Czech',
     },
     {
+      id: 16,
       country: 'HU',
       name: 'Weco Hungary',
       city: 'Budapest',
@@ -146,6 +164,7 @@ const World = () => {
       countryname: 'Hungary',
     },
     {
+      id: 17,
       country: 'PL',
       name: 'Weco Poland',
       city: 'Warsaw',
@@ -153,6 +172,7 @@ const World = () => {
       countryname: 'Poland',
     },
     {
+      id: 18,
       country: 'RO',
       name: 'Weco Romania',
       city: 'Bucharest',
@@ -160,6 +180,7 @@ const World = () => {
       countryname: 'Romania',
     },
     {
+      id: 19,
       country: 'LK',
       name: 'Worldlink ',
       city: 'Colombo',
@@ -167,20 +188,23 @@ const World = () => {
       countryname: 'Sri Lanka',
     },
     {
+      id: 2,
       country: 'US',
       name: 'World Travel, Inc',
       city: 'Exton, PA',
       img: worldtravel,
       countryname: 'USA',
     },
-    // {
-    //   country: 'US',
-    //   name: 'Gordian Travel',
-    //   city: 'Upper Black Eddy, PA',
-    //   img: gordian,
-    //   countryname: 'USA',
-    // },
     {
+      id: 21,
+      country: 'US',
+      name: 'Gordian Travel',
+      city: 'Upper Black Eddy, PA',
+      img: gordian,
+      countryname: 'USA',
+    },
+    {
+      id: 22,
       country: 'ZA',
       name: 'XL Turners',
       city: 'Durban',
@@ -188,6 +212,7 @@ const World = () => {
       countryname: 'South Africa',
     },
     {
+      id: 23,
       country: 'CN',
       name: 'TripBiz',
       city: 'Shanghai',
@@ -195,19 +220,21 @@ const World = () => {
       countryname: 'China',
     },
     {
+      id: 24,
       country: 'JP',
       name: 'TripBiz',
       city: 'Tokyo',
       img: tripbiz,
       countryname: 'Japan',
     },
-    // {
-    //   country: 'CN',
-    //   name: 'TripBiz',
-    //   city: 'Hong Kong',
-    //   img: tripbiz,
-    //   countryname: 'Hong Kong',
-    // },
+    {
+      id: 25,
+      country: 'CN',
+      name: 'TripBiz',
+      city: 'Hong Kong',
+      img: tripbiz,
+      countryname: 'Hong Kong',
+    },
   ];
 
   const cheated = () => {
@@ -225,11 +252,16 @@ const World = () => {
   const ClickCountry = clicked => {
     if (!found.find(element => element === clicked.properties.ISO_A2)) {
       setFound(prevFound => [...prevFound, clicked.properties.ISO_A2]);
+      let count = 0;
+      let rightCheck = 0;
       partners.map(partner => {
         if (partner.country === clicked.properties.ISO_A2) {
-          setScore(prevScore => prevScore + 1);
+          count = count + 1;
+          rightCheck = 1;
         }
       });
+      setScore(prevScore => prevScore + count);
+      setRight(prevRight => prevRight + rightCheck);
     }
   };
 
@@ -244,6 +276,30 @@ const World = () => {
     setFound([]);
     setCheater(false);
   };
+
+  const renderPartner = partner => {
+    return (
+      <div
+        className='card'
+        key={partner.id}
+      >
+        <div className='card-img'>
+          <img src={partner.img} />
+        </div>
+        <div className='card-info'>
+          <div className='card-partner'>{partner.name}</div>
+          <div className='card-details'>
+            {partner.city}, {partner.countryname}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const foundPartners = found.map(element => {
+    const partner = partners.filter(partner => partner.country === element);
+    return partner;
+  });
 
   return (
     <>
@@ -267,7 +323,7 @@ const World = () => {
                   <tr>
                     <td>{found.length}</td>
                     <td>{score}</td>
-                    <td>{found.length - score}</td>
+                    <td>{found.length - right}</td>
                   </tr>
                 </tbody>
               </table>
@@ -280,28 +336,7 @@ const World = () => {
               )}
             </div>
             <div className='found-partners'>
-              {found.map(element => {
-                const partner = partners.find(
-                  partner => partner.country === element
-                );
-                if (partner) {
-                  return (
-                    <>
-                      <div className='card'>
-                        <div className='card-img'>
-                          <img src={partner.img} />
-                        </div>
-                        <div className='card-info'>
-                          <div className='card-partner'>{partner.name}</div>
-                          <div className='card-details'>
-                            {partner.city}, {partner.countryname}
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  );
-                }
-              })}
+              {foundPartners.flat().map(partner => renderPartner(partner))}
             </div>
             <div className='footer'>
               <img
