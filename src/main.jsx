@@ -118,7 +118,7 @@ const World = () => {
     {
       id: 11,
       country: 'CH',
-      name: 'Kuoni ',
+      name: 'BTA First | Kuoni ',
       city: 'Zurich',
       img: kuoni,
       countryname: 'Switzerland',
@@ -353,7 +353,7 @@ const World = () => {
             backgroundImageUrl={sky}
             lineHoverPrecision={0}
             polygonsData={countries.features.filter(
-              d => d.properties.ISO_A2 !== 'AQ'
+              d => d.properties.ISO_A2 !== 'AQ',
             )}
             polygonAltitude={d => {
               const t = found.find(element => element === d.properties.ISO_A2);
